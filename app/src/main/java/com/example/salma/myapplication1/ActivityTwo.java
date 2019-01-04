@@ -19,12 +19,20 @@ public class ActivityTwo extends AppCompatActivity {
         button_two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = editText.getText().toString();
-                Intent intent = new Intent();
-                intent.putExtra(MyHelper.USERNAME,username);
-                setResult(RESULT_OK,intent);
-                finish();
+               save();
             }
         });
     }
+    private void save(){
+        String name = editText.getText().toString();
+        editText.setText("");
+        if(!name.isEmpty()){
+            DataManager.getInstance().addName(name);
+        }
+
+        finish();
+    }
 }
+// public voic save() {
+//String name = editTextName.getText().toString();
+//DataManger.getInstance().setName
